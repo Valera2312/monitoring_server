@@ -1,6 +1,6 @@
-package com.vp.monitoring_server.poll.impl;
+package com.vp.monitoring_server.service.impl;
 
-import com.vp.monitoring_server.poll.AgentPollService;
+import com.vp.monitoring_server.service.AgentPollService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

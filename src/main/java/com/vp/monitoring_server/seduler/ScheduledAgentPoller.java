@@ -1,9 +1,10 @@
-package com.vp.monitoring_server.poll.seduler;
+package com.vp.monitoring_server.seduler;
 
-import com.vp.monitoring_server.poll.AgentPollService;
+import com.vp.monitoring_server.service.AgentPollService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ public class ScheduledAgentPoller {
 
     private AgentPollService agentPollService;
 
-    @Scheduled(fixedRate = 5000) // Каждые 5 секунд
+    @Scheduled(fixedRateString = "${pollAgent.cpu_poll_rate}")
     public void pollAgents() throws ExecutionException, InterruptedException {
 
         List<String> agents = List.of("http://agent1.local", "http://agent2.local", "http://agent3.local");

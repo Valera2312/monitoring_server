@@ -1,4 +1,4 @@
-package com.vp.monitoring_server.poll;
+package com.vp.monitoring_server.service;
 
 import java.util.concurrent.CompletableFuture;
 
