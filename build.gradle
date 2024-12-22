@@ -26,7 +26,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.4.0'
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation group: 'io.netty', name: 'netty-all', version: '4.1.24.Final'
+//	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

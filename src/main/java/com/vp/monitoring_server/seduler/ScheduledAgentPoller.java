@@ -14,31 +14,33 @@ import java.util.concurrent.ExecutionException;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ScheduledAgentPoller {
 
-    private AgentPollService agentPollService;
+    private static final String CPU_LOAD_METRIC = "get_cpu_load";
 
-    @Scheduled(fixedRateString = "${pollAgent.cpu_poll_rate}")
-    public void pollAgents() throws ExecutionException, InterruptedException {
+//    @Autowired
+//    private AgentPollService agentPollService;
 
-        List<String> agents = List.of("http://agent1.local", "http://agent2.local", "http://agent3.local");
+//    @Scheduled(fixedRateString = "${pollAgent.cpu_poll_rate}")
+//    public void pollAgents() throws ExecutionException, InterruptedException {
 
-        List<CompletableFuture<String>> futures = agents.stream()
-                .map(agent -> agentPollService.pollAgent(agent))
-                .toList();
-
-        // Ждём завершения всех задач
-        CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
-                .thenRun(() -> {
-                    futures.forEach(future -> {
-                        try {
-                            log.info(future.get());
-                        } catch (InterruptedException | ExecutionException e) {
-                            log.error("Ошибка при выполнении задачи: ", e);
-                        }
-                    });
-                }).join();
+//        List<String> agents = List.of("http://agent1.local", "http://agent2.local", "http://agent3.local");
+//
+//        List<CompletableFuture<String>> futures = agents.stream()
+//                .map(agent -> agentPollService.pollAgent(agent, CPU_LOAD_METRIC))
+//                .toList();
+//
+//        // Ждём завершения всех задач
+//        CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
+//                .thenRun(() -> {
+//                    futures.forEach(future -> {
+//                        try {
+//                            log.info(future.get());
+//                        } catch (InterruptedException | ExecutionException e) {
+//                            log.error("Ошибка при выполнении задачи: ", e);
+//                        }
+//                    });
+//                }).join();
 
 //        agents.forEach(agent -> agentPollService.pollAgent(agent)
 //                .thenAccept(result -> log.info("Результат опроса агента {}: {}", agent, result))
@@ -47,5 +49,5 @@ public class ScheduledAgentPoller {
 //                    return null;
 //                })
 //        );
-    }
+    //}
 }

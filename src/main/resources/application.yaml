@@ -1,15 +1,15 @@
 spring:
   application:
     name: monitoring_server
-databases:
-  default: mongodb
-  mongodb:
-    url: jdbc:mysql://localhost:3306/mydb
-    username: root
-    password: password
-  postgresdb:
-    url: jdbc:postgresql://localhost:5432/postgresdb
-    username: postgres
-    password: password
+#databases:
+#  default: mongodb
+#  mongodb:
+#    url: jdbc:mysql://localhost:3306/mydb
+#    username: root
+#    password: password
+#  postgresdb:
+#    url: jdbc:postgresql://localhost:5432/postgresdb
+#    username: postgres
+#    password: password
 pollAgent:
     cpu_poll_rate: 5000

@@ -4,5 +4,5 @@ import java.util.concurrent.CompletableFuture;
 
 public interface AgentPollService {
 
-   CompletableFuture<String> pollAgent(String agentUrl);
+   void pollAgent(String agentUrl, String metric) throws InterruptedException;
 }
