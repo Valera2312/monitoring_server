@@ -1,17 +1,13 @@
 package com.vp.monitoring_server;
 
-import com.vp.monitoring_server.service.AgentPollService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.vp.monitoring_server.config.datasource.properties.DatabaseProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@EnableScheduling
+@EnableConfigurationProperties(DatabaseProperties.class)
 @SpringBootApplication
 public class MonitoringServerApplication {
-
-	@Autowired
-	AgentPollService agentPollService;
 
 	public static void main(String[] args) {
 
